@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcService.Backend.Api", "CalcService.Backend.Api\CalcService.Backend.Api.csproj", "{CCC9EB6A-4FC5-48ED-8D91-361C58ED095E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcService.Backend.Tests", "CalcService.Backend.Tests\CalcService.Backend.Tests.csproj", "{CEBE27E5-73F3-4264-A2E4-18A40AB89118}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCC9EB6A-4FC5-48ED-8D91-361C58ED095E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC9EB6A-4FC5-48ED-8D91-361C58ED095E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC9EB6A-4FC5-48ED-8D91-361C58ED095E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC9EB6A-4FC5-48ED-8D91-361C58ED095E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBE27E5-73F3-4264-A2E4-18A40AB89118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBE27E5-73F3-4264-A2E4-18A40AB89118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBE27E5-73F3-4264-A2E4-18A40AB89118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBE27E5-73F3-4264-A2E4-18A40AB89118}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
