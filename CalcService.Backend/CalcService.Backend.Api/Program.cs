@@ -2,6 +2,8 @@ using CalcService.Backend.Api.Data;
 using CalcService.Backend.Api.Services;
 using Microsoft.EntityFrameworkCore;
 
+var policy = "GeneralPolicy";
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTransient<IMathService, MathService>();
@@ -10,11 +12,21 @@ var connectionString = builder.Configuration.GetConnectionString("CalculationDbC
 
 builder.Services.AddDbContext<CalculationDbContext>(opt => opt.UseSqlServer(connectionString));
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(policy, policy =>
+        policy.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .WithMethods());
+});
+
 var app = builder.Build();
 
 using var scope = app.Services.CreateScope();
 var db = scope.ServiceProvider.GetService<CalculationDbContext>();
 db?.Database.MigrateAsync();
+
+app.UseCors(policy);
 
 app.MapGet("/", () => "Hello World!");
 app.MapPost("/add", async (HttpRequest request, IMathService mathService, CalculationDbContext db) =>
