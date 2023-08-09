@@ -1,0 +1,41 @@
+version: "1.0"
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - SA_PASSWORD=SuperSecretPassword123!
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    networks:
+      - my-network
+
+  backend:
+    build:
+      context: ./CalcService.backend
+      dockerfile: Dockerfile
+    environment:
+      ConnectionStrings__CalculationDbConnectionString: "Server=sqlserver;Database=CalculationDatabase;User=sa;Password=SuperSecretPassword123!;Encrypt=True;TrustServerCertificate=True;"
+    ports:
+      - "8080:80"
+    depends_on:
+      - sqlserver
+    networks:
+      - my-network
+
+  frontend:
+    build:
+      context: ./calc_service.frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:3000"
+    depends_on:
+      - sqlserver
+      - backend
+    networks:
+      - my-network
+
+
+networks:
+  my-network:
+    driver: bridge

@@ -10,7 +10,7 @@ function App() {
 
   const handleCalculate = async () => {
     try {
-      const response = await axios.post('https://localhost:44379/add', { num1: num1, num2: num2 });
+      const response = await axios.post('http://localhost:8080/add', { num1: num1, num2: num2 });
       setResult(response.data);
     } catch(error) {
       console.log('Error:', error);
