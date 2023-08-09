@@ -22,4 +22,8 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CalcService.Backend.Api\CalcService.Backend.Api.csproj" />
+    </ItemGroup>
+
 </Project>
